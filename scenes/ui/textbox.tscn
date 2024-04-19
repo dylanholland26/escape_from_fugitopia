@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0eqk3dram4oh"]
+
+[ext_resource type="FontFile" uid="uid://bvj010k7kwb3a" path="res://fonts/BubblegumSans-Regular.ttf" id="1_fx7xk"]
+[ext_resource type="Script" path="res://scenes/ui/textbox.gd" id="1_g2gvs"]
+[ext_resource type="Theme" uid="uid://e78vaxtv1jt8" path="res://themes/sprout_text.theme" id="1_yfx27"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4kr26"]
+font_size = 36
+shadow_size = 5
+shadow_color = Color(0.160784, 0.278431, 0.156863, 0.376471)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nf7dk"]
+font = ExtResource("1_fx7xk")
+font_size = 60
+
+[node name="TextBox" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_g2gvs")
+
+[node name="TextBoxContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -516.5
+offset_top = -82.5
+offset_right = 516.5
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TexBoxPanel" type="Panel" parent="TextBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_yfx27")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextBoxContainer/TexBoxPanel"]
+layout_mode = 2
+offset_right = 1033.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextBoxContainer/TexBoxPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="Start" type="Label" parent="TextBoxContainer/TexBoxPanel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+label_settings = SubResource("LabelSettings_4kr26")
+
+[node name="Text" type="Label" parent="TextBoxContainer/TexBoxPanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(640, 128)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG THE QUICK BROWN"
+label_settings = SubResource("LabelSettings_4kr26")
+autowrap_mode = 3
+
+[node name="End" type="Label" parent="TextBoxContainer/TexBoxPanel/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_vertical = 8
+text = "-"
+label_settings = SubResource("LabelSettings_nf7dk")
+visible_characters = 0
+visible_ratio = 0.0

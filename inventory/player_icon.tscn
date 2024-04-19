@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://bngshn18ixogd"]
+
+[ext_resource type="Texture2D" uid="uid://cujwnhu0vwtmd" path="res://item/player_profile_picture.tres" id="2_e3od1"]
+[ext_resource type="PackedScene" uid="uid://bjjor27sg7c35" path="res://inventory/slot.tscn" id="2_wdmwj"]
+[ext_resource type="Texture2D" uid="uid://cm06ltll7h3d6" path="res://item/buttons/health_bar.tres" id="3_8ckwm"]
+
+[node name="player_icon" type="PanelContainer"]
+custom_minimum_size = Vector2(128, 128)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player_Icon" parent="." instance=ExtResource("2_wdmwj")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Player_Icon"]
+layout_mode = 2
+texture = ExtResource("2_e3od1")
+expand_mode = 1
+
+[node name="Slot" parent="." instance=ExtResource("2_wdmwj")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Slot"]
+layout_mode = 2
+texture = ExtResource("3_8ckwm")
+expand_mode = 1
+stretch_mode = 4

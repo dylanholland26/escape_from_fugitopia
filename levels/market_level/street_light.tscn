@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgs7youjxfqvh"]
+
+[ext_resource type="PackedScene" uid="uid://cnu7ldfjsyjvt" path="res://models/market/street_light.glb" id="1_kc51s"]
+[ext_resource type="Script" path="res://levels/market_level/light.gd" id="2_gmidu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_214g8"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.203922, 0.239216, 0.196078, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shag0"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(1, 1, 1, 0.270588)
+
+[node name="street_light" instance=ExtResource("1_kc51s")]
+script = ExtResource("2_gmidu")
+
+[node name="pole" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00222015, -0.0061307, 0.00301194)
+surface_material_override/0 = SubResource("StandardMaterial3D_214g8")
+
+[node name="glass" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_shag0")
+
+[node name="bulb" type="OmniLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.78575, 0)
+light_color = Color(0.921569, 0.772549, 0.34902, 1)
+light_energy = 3.0
+omni_range = 11.8557

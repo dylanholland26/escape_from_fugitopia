@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvemc4apg1b2u"]
+
+[ext_resource type="PackedScene" uid="uid://bjjor27sg7c35" path="res://inventory/slot.tscn" id="1_60e55"]
+[ext_resource type="Texture2D" uid="uid://uaiwo52jpqt4" path="res://item/buttons/rewind_button.tres" id="2_p3hwe"]
+[ext_resource type="Texture2D" uid="uid://bygblo3ygn5v3" path="res://item/buttons/info_button.tres" id="3_vnwx5"]
+[ext_resource type="Texture2D" uid="uid://cxoqr2vgn5lgq" path="res://item/buttons/settings_button.tres" id="4_7ima6"]
+[ext_resource type="Texture2D" uid="uid://cwrfucpgpasyl" path="res://item/buttons/home_button.tres" id="5_r58r1"]
+
+[node name="menu_buttons" type="PanelContainer"]
+offset_left = 800.0
+offset_right = 840.0
+offset_bottom = 40.0
+
+[node name="Rewind_Button" type="Control" parent="."]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Rewind_Button"]
+layout_mode = 0
+offset_right = 448.0
+offset_bottom = 448.0
+scale = Vector2(0.2, 0.2)
+
+[node name="Slot" parent="Rewind_Button/GridContainer" instance=ExtResource("1_60e55")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Rewind_Button/GridContainer/Slot"]
+layout_mode = 2
+texture = ExtResource("2_p3hwe")
+
+[node name="Info_Button" type="Control" parent="."]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Info_Button"]
+layout_mode = 0
+offset_left = 88.0
+offset_right = 528.0
+offset_bottom = 448.0
+scale = Vector2(0.2, 0.2)
+
+[node name="Slot" parent="Info_Button/GridContainer" instance=ExtResource("1_60e55")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Info_Button/GridContainer/Slot"]
+layout_mode = 2
+texture = ExtResource("3_vnwx5")
+
+[node name="Settings_Button" type="Control" parent="."]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Settings_Button"]
+layout_mode = 0
+offset_left = 175.0
+offset_right = 615.0
+offset_bottom = 448.0
+scale = Vector2(0.2, 0.2)
+
+[node name="Slot" parent="Settings_Button/GridContainer" instance=ExtResource("1_60e55")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Settings_Button/GridContainer/Slot"]
+layout_mode = 2
+texture = ExtResource("4_7ima6")
+
+[node name="Home_Button" type="Control" parent="."]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Home_Button"]
+layout_mode = 0
+offset_left = 260.0
+offset_right = 708.0
+offset_bottom = 454.0
+scale = Vector2(0.2, 0.2)
+
+[node name="Slot" parent="Home_Button/GridContainer" instance=ExtResource("1_60e55")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Home_Button/GridContainer/Slot"]
+layout_mode = 2
+texture = ExtResource("5_r58r1")

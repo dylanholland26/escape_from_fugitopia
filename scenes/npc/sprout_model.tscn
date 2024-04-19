@@ -1,0 +1,451 @@
+[gd_scene load_steps=18 format=3 uid="uid://gt05p52c23b7"]
+
+[ext_resource type="PackedScene" uid="uid://t1toqnktr7a4" path="res://models/sprout/sprout_test.glb" id="1_wli6s"]
+[ext_resource type="Material" uid="uid://7ftdwkpobrp5" path="res://scenes/npc/brass.tres" id="2_g5kug"]
+[ext_resource type="Material" uid="uid://clyqifscxnebv" path="res://models/sprout/sprout_cuff.material" id="3_7ft2j"]
+[ext_resource type="Material" uid="uid://b76v5542lpqlm" path="res://scenes/npc/sprout/cloak.tres" id="3_tjbg3"]
+[ext_resource type="Material" uid="uid://f3pl3tm55po" path="res://models/sprout/sprout_cornea.material" id="4_xqm5e"]
+[ext_resource type="Material" uid="uid://cggyj2t1pfhlp" path="res://models/sprout/black.material" id="5_w7v5d"]
+[ext_resource type="Material" uid="uid://bktfqrp7pjd2k" path="res://models/sprout/sprout_iris.material" id="6_apfvn"]
+[ext_resource type="Material" uid="uid://btn72idhya521" path="res://models/sprout/sprout_hair.material" id="7_mh3fs"]
+[ext_resource type="Material" uid="uid://c0ev78xtqse23" path="res://scenes/npc/sprout/sprout_teeth.material" id="8_e0ons"]
+[ext_resource type="Material" uid="uid://7qghpecnsp7s" path="res://models/sprout/sprout_dark_brown.material" id="8_givfg"]
+[ext_resource type="Material" uid="uid://ckofi7msj00qw" path="res://models/sprout/sprout_skin.material" id="10_0jsts"]
+[ext_resource type="Material" uid="uid://dcpnaqigipi5u" path="res://models/sprout/sprout_mid_brown.material" id="11_3ut6p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nn05t"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.870588, 0.164706, 0.247059, 1)
+roughness = 0.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_koau1"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.67451, 0.419608, 0.388235, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4gqh2"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.388235, 0.388235, 0.388235, 1)
+metallic = 0.5
+metallic_specular = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1u22"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.321569, 0.513726, 0.262745, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tu2tw"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.235294, 0.0901961, 0.0588235, 1)
+
+[node name="sprout_test" instance=ExtResource("1_wli6s")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="bukcle" parent="sprout_rig/belt" index="0"]
+surface_material_override/0 = ExtResource("2_g5kug")
+
+[node name="button_01" parent="sprout_rig/coat" index="0"]
+surface_material_override/0 = ExtResource("2_g5kug")
+
+[node name="button_02" parent="sprout_rig/coat" index="1"]
+surface_material_override/0 = ExtResource("2_g5kug")
+
+[node name="button_03" parent="sprout_rig/coat" index="2"]
+surface_material_override/0 = ExtResource("2_g5kug")
+
+[node name="button_04" parent="sprout_rig/coat" index="3"]
+surface_material_override/0 = ExtResource("2_g5kug")
+
+[node name="button_05" parent="sprout_rig/coat" index="4"]
+surface_material_override/0 = ExtResource("2_g5kug")
+
+[node name="Skeleton3D" parent="sprout_rig" index="2"]
+bones/0/rotation = Quaternion(-0.5, 0.5, 0.5, -0.5)
+bones/2/rotation = Quaternion(0.5, 0.5, 0.5, 0.5)
+bones/4/rotation = Quaternion(0.0657159, 1.30172e-18, 1.30172e-18, 0.997838)
+bones/5/rotation = Quaternion(0.625304, 0.447757, 0.5094, -0.38603)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/rotation = Quaternion(0.0501841, 0.801975, -0.595111, -0.0126684)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/rotation = Quaternion(-2.10663e-08, -4.4425e-08, -0.0866213, 0.996241)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/rotation = Quaternion(0.706657, 0.0252057, -0.706657, 0.0252057)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/rotation = Quaternion(0.625304, -0.447757, -0.5094, -0.38603)
+bones/9/scale = Vector3(1, 1, 1)
+bones/10/rotation = Quaternion(-0.0501841, 0.801975, -0.595111, 0.0126684)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(-2.10663e-08, 4.4425e-08, 0.0866213, 0.996241)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/rotation = Quaternion(0.706657, -0.0252057, 0.706657, 0.0252057)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(-0.114853, 1.1842e-07, -1.36916e-08, 0.993382)
+bones/14/rotation = Quaternion(-0.100787, 1.13822e-14, -2.40296e-08, 0.994908)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(0.0529133, 6.92083e-15, 1.26155e-08, 0.998599)
+bones/16/rotation = Quaternion(0.158764, -4.49794e-15, 3.78524e-08, 0.987317)
+bones/18/rotation = Quaternion(0.625684, 0.000600169, -0.000750283, 0.780076)
+bones/19/rotation = Quaternion(-0.695022, -0.000666966, 0.000691742, 0.718987)
+bones/19/scale = Vector3(0.217448, 0.217448, 0.217448)
+bones/21/rotation = Quaternion(0.625684, -0.0006003, 0.000750363, 0.780076)
+bones/22/rotation = Quaternion(-0.695022, 0.000666905, -0.000691678, 0.718987)
+bones/22/scale = Vector3(0.217448, 0.217448, 0.217448)
+bones/24/rotation = Quaternion(-1.96413e-07, 0.780077, 0.625684, -5.88942e-08)
+bones/24/scale = Vector3(1, 1, 1)
+bones/25/rotation = Quaternion(-1.96413e-07, 0.780077, 0.625684, -5.88942e-08)
+bones/25/scale = Vector3(1, 1, 1)
+bones/26/rotation = Quaternion(-0.109172, -1.18497e-07, -1.30143e-08, 0.994023)
+bones/26/scale = Vector3(1, 1, 1)
+bones/27/rotation = Quaternion(-0.109172, -1.18497e-07, -1.30143e-08, 0.994023)
+bones/27/scale = Vector3(1, 1, 1)
+bones/31/rotation = Quaternion(-0.0837642, -0.186921, -0.0123156, 0.97872)
+bones/32/rotation = Quaternion(-0.11492, 0.0187276, 0.0526896, 0.9918)
+bones/34/rotation = Quaternion(0.105944, 0.958613, -0.103971, 0.242953)
+bones/34/scale = Vector3(2.39407, 2.39407, 2.39407)
+bones/35/rotation = Quaternion(0.0971589, 0.948554, 0.0917843, -0.287022)
+bones/35/scale = Vector3(2.39407, 2.39407, 2.39407)
+bones/36/rotation = Quaternion(0.133217, 0.863466, 0.0209395, 0.486046)
+bones/36/scale = Vector3(2.39407, 2.39407, 2.39407)
+bones/38/rotation = Quaternion(0.230699, 0.187079, 0.0662384, 0.952571)
+bones/39/rotation = Quaternion(0.216889, 0.176927, 0.0717483, 0.957344)
+bones/40/rotation = Quaternion(0.233717, 0.139312, 0.0546438, 0.96072)
+bones/41/rotation = Quaternion(0.0139243, -0.701456, 0.18364, 0.688507)
+bones/49/rotation = Quaternion(0, 0.879099, 0, 0.47664)
+bones/50/rotation = Quaternion(0.00915357, 0.977287, -0.00986795, 0.211492)
+bones/51/rotation = Quaternion(0, 0.997589, 0, -0.0693919)
+bones/52/rotation = Quaternion(-0.092312, -1.187e-07, -1.10044e-08, 0.99573)
+bones/53/rotation = Quaternion(-0.17964, -1.1727e-07, -2.14148e-08, 0.983732)
+bones/53/scale = Vector3(1.3258, 1, 1)
+bones/54/rotation = Quaternion(-0.0152408, -1.19195e-07, -1.81684e-09, 0.999884)
+bones/55/rotation = Quaternion(-0.027585, -0.0442182, -0.804184, 0.592092)
+bones/55/scale = Vector3(1, 1, 1)
+bones/56/rotation = Quaternion(-0.132686, -0.0177962, -0.26585, 0.954673)
+bones/57/rotation = Quaternion(0.0214403, -0.000436613, -0.0356742, 0.999133)
+bones/58/rotation = Quaternion(0.141887, 0.189765, 0.76234, 0.602241)
+bones/58/scale = Vector3(1.02702, 1.02702, 1.02702)
+bones/59/rotation = Quaternion(0.13831, 0.0501884, 0.920687, 0.361505)
+bones/59/scale = Vector3(1, 1, 1)
+bones/60/rotation = Quaternion(-0.0275852, 0.044218, 0.804183, 0.592092)
+bones/60/scale = Vector3(1, 1, 1)
+bones/61/rotation = Quaternion(-0.132686, 0.0177963, 0.26585, 0.954673)
+bones/62/rotation = Quaternion(0.0214403, 0.000436595, 0.0356741, 0.999133)
+bones/62/scale = Vector3(1, 1, 1)
+bones/63/rotation = Quaternion(-0.126217, 0.364616, 0.896116, -0.21932)
+bones/64/rotation = Quaternion(-0.13831, 0.0501884, 0.920687, -0.361505)
+bones/64/scale = Vector3(1, 1, 1)
+bones/65/rotation = Quaternion(0.124989, 0.0995387, 0.957698, -0.239343)
+bones/66/rotation = Quaternion(0.0654138, 0.756052, -0.0905883, 0.644903)
+bones/66/scale = Vector3(1, 1, 1)
+bones/67/rotation = Quaternion(-0.00376043, -0.0199341, 0.0405461, 0.998972)
+bones/68/rotation = Quaternion(0.119923, 0.805552, -0.116826, 0.56838)
+bones/68/scale = Vector3(1, 1, 1)
+bones/69/rotation = Quaternion(-0.0315995, 0.00341566, 0.00911834, 0.999453)
+bones/70/rotation = Quaternion(0.00533463, 0.742464, -0.116743, 0.659613)
+bones/70/scale = Vector3(1, 1, 1)
+bones/71/rotation = Quaternion(0.0309319, -0.00453651, -0.00969866, 0.999464)
+bones/72/rotation = Quaternion(-0.0555877, 0.702035, -0.165471, 0.690418)
+bones/72/scale = Vector3(1, 1, 1)
+bones/73/rotation = Quaternion(0.123661, -0.0362446, -0.0640913, 0.989589)
+bones/73/scale = Vector3(1, 1, 1)
+bones/74/rotation = Quaternion(0.208305, 0.144771, -0.230428, 0.939443)
+bones/74/scale = Vector3(1, 1, 1)
+bones/75/rotation = Quaternion(0.0936942, 0.746318, -0.295272, 0.589106)
+bones/76/rotation = Quaternion(0.0751283, 0.707548, -0.275002, 0.64661)
+bones/76/scale = Vector3(1, 1, 1)
+bones/77/rotation = Quaternion(-0.00928046, 0.585918, -0.198412, 0.785651)
+bones/78/rotation = Quaternion(0.0240587, 0.279129, -0.320627, 0.904824)
+bones/78/scale = Vector3(1, 1, 1)
+bones/79/rotation = Quaternion(0.0714871, 0.756057, -0.247487, 0.601679)
+bones/79/scale = Vector3(1, 1, 1)
+bones/80/rotation = Quaternion(-0.0808604, -0.60681, 0.747579, 0.257621)
+bones/81/rotation = Quaternion(-0.124989, 0.0995387, 0.957698, 0.239343)
+bones/82/rotation = Quaternion(0.0654138, -0.756052, 0.0905883, 0.644903)
+bones/82/scale = Vector3(1, 1, 1)
+bones/83/rotation = Quaternion(-0.00376043, 0.0199341, -0.0405461, 0.998972)
+bones/84/rotation = Quaternion(0.119923, -0.805552, 0.116826, 0.56838)
+bones/84/scale = Vector3(1, 1, 1)
+bones/85/rotation = Quaternion(-0.0315995, -0.00341566, -0.00911834, 0.999453)
+bones/86/rotation = Quaternion(0.00533463, -0.742464, 0.116743, 0.659613)
+bones/86/scale = Vector3(1, 1, 1)
+bones/87/rotation = Quaternion(0.0309319, 0.00453651, 0.00969866, 0.999464)
+bones/88/rotation = Quaternion(-0.0555877, -0.702035, 0.165471, 0.690418)
+bones/88/scale = Vector3(1, 1, 1)
+bones/89/rotation = Quaternion(0.123661, 0.0362446, 0.0640913, 0.989589)
+bones/89/scale = Vector3(1, 1, 1)
+bones/90/rotation = Quaternion(0.208305, -0.144771, 0.230428, 0.939443)
+bones/90/scale = Vector3(1, 1, 1)
+bones/91/rotation = Quaternion(0.0936942, -0.746318, 0.295272, 0.589106)
+bones/92/rotation = Quaternion(0.0751283, -0.707548, 0.275002, 0.64661)
+bones/92/scale = Vector3(1, 1, 1)
+bones/93/rotation = Quaternion(-0.00928046, -0.585918, 0.198412, 0.785651)
+bones/94/rotation = Quaternion(0.0240587, -0.279129, 0.320627, 0.904824)
+bones/94/scale = Vector3(1, 1, 1)
+bones/95/rotation = Quaternion(0.0714871, -0.756057, 0.247487, 0.601679)
+bones/95/scale = Vector3(1, 1, 1)
+bones/96/rotation = Quaternion(0.0808604, -0.60681, 0.747579, -0.257621)
+
+[node name="trouser_cuff_left" parent="sprout_rig/Skeleton3D" index="0"]
+transform = Transform3D(1, -1.71886e-08, 1.46366e-07, 2.4088e-07, 1, 5.21541e-07, 1.33725e-07, -5.36442e-07, 1, 3.12924e-07, 0.986406, 0.0239845)
+
+[node name="trouser_cuff_left" parent="sprout_rig/Skeleton3D/trouser_cuff_left" index="0"]
+surface_material_override/0 = ExtResource("3_7ft2j")
+
+[node name="trouser_cuff_right" parent="sprout_rig/Skeleton3D" index="1"]
+transform = Transform3D(1, 1.71886e-08, -1.46366e-07, -2.4088e-07, 1, 5.21541e-07, -1.33725e-07, -5.36442e-07, 1, 4.47035e-07, 0.986406, 0.0239845)
+
+[node name="trouser_cuff_right" parent="sprout_rig/Skeleton3D/trouser_cuff_right" index="0"]
+surface_material_override/0 = ExtResource("3_7ft2j")
+
+[node name="eye_left_2" parent="sprout_rig/Skeleton3D" index="2"]
+transform = Transform3D(0.217448, 2.96041e-10, -2.11225e-10, -3.51065e-10, 0.217323, -0.00736888, 2.62575e-10, 0.00736886, 0.217323, 0.038588, 1.42698, 0.0880297)
+
+[node name="eye_left_2" parent="sprout_rig/Skeleton3D/eye_left_2" index="0"]
+surface_material_override/0 = ExtResource("4_xqm5e")
+
+[node name="iris_left" parent="sprout_rig/Skeleton3D" index="3"]
+transform = Transform3D(0.217448, 2.96041e-10, -2.11225e-10, -3.51065e-10, 0.217323, -0.00736888, 2.62575e-10, 0.00736886, 0.217323, 0.038588, 1.42698, 0.0880297)
+
+[node name="iris_left" parent="sprout_rig/Skeleton3D/iris_left" index="0"]
+surface_material_override/0 = ExtResource("5_w7v5d")
+surface_material_override/1 = ExtResource("6_apfvn")
+
+[node name="eye_right_2" parent="sprout_rig/Skeleton3D" index="4"]
+transform = Transform3D(0.217448, -3.97677e-10, 2.3474e-10, 4.3957e-10, 0.217323, -0.00736888, -1.75263e-10, 0.00736886, 0.217323, 0.038588, 1.42698, 0.0880297)
+
+[node name="eye_right_2" parent="sprout_rig/Skeleton3D/eye_right_2" index="0"]
+transform = Transform3D(0.999992, -0.00390849, -4.49192e-05, 0.00390848, 0.999992, -7.82944e-05, 4.52243e-05, 7.81156e-05, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("4_xqm5e")
+
+[node name="iris_right" parent="sprout_rig/Skeleton3D" index="5"]
+transform = Transform3D(0.217448, -3.97677e-10, 2.3474e-10, 4.3957e-10, 0.217323, -0.00736888, -1.75263e-10, 0.00736886, 0.217323, 0.038588, 1.42698, 0.0880297)
+
+[node name="iris_right" parent="sprout_rig/Skeleton3D/iris_right" index="0"]
+transform = Transform3D(0.99998, -0.00631152, 9.41362e-05, 0.00631163, 0.999979, -0.00118621, -8.66485e-05, 0.00118678, 0.999999, 0, 0, 0)
+surface_material_override/0 = ExtResource("5_w7v5d")
+surface_material_override/1 = ExtResource("6_apfvn")
+
+[node name="eyelashes" parent="sprout_rig/Skeleton3D" index="6"]
+transform = Transform3D(1, 1.59872e-13, -1.20792e-12, -1.81188e-13, 1, -6.10948e-07, 1.15108e-12, 5.36442e-07, 1, 3.7849e-07, 0.986406, 0.0243544)
+
+[node name="eyelashes" parent="sprout_rig/Skeleton3D/eyelashes" index="0"]
+surface_material_override/0 = ExtResource("5_w7v5d")
+
+[node name="antenna_tip" parent="sprout_rig/Skeleton3D" index="7"]
+transform = Transform3D(0.101245, 1.61863e-14, -1.22296e-13, -1.83444e-14, 0.101245, -6.18554e-08, 1.16541e-13, 5.4312e-08, 0.101245, 0.0995333, 1.57101, -0.000644948)
+
+[node name="antenna_tip" parent="sprout_rig/Skeleton3D/antenna_tip" index="0"]
+transform = Transform3D(1, 0.000400347, -2.92542e-06, -0.000400348, 1, -0.000123179, 2.89191e-06, 0.000123179, 1, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_nn05t")
+
+[node name="eyebrows" parent="sprout_rig/Skeleton3D" index="8"]
+transform = Transform3D(1, 1.59872e-13, -1.20792e-12, -1.81188e-13, 1, -6.10948e-07, 1.15108e-12, 5.36442e-07, 1, 3.72529e-09, 1.44589, 0.144111)
+
+[node name="eyebrows" parent="sprout_rig/Skeleton3D/eyebrows" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand" parent="sprout_rig/Skeleton3D" index="9"]
+transform = Transform3D(0.216448, 3.4604e-14, -2.61453e-13, -3.92179e-14, 0.216448, -1.32239e-07, 2.49149e-13, 1.16112e-07, 0.216448, 0.0630841, 1.53088, 0.0263701)
+
+[node name="hair_strand" parent="sprout_rig/Skeleton3D/hair_strand" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_001" parent="sprout_rig/Skeleton3D" index="10"]
+transform = Transform3D(2.22605, 0.132683, -0.871019, 0.0172548, 2.35975, 0.403561, 0.880898, -0.381516, 2.19318, -0.0523278, 1.51944, -0.0216469)
+
+[node name="hair_strand_001" parent="sprout_rig/Skeleton3D/hair_strand_001" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_002" parent="sprout_rig/Skeleton3D" index="11"]
+transform = Transform3D(2.3791, -0.260521, 0.0599425, 0.239912, 2.31754, 0.550464, -0.117928, -0.541015, 2.32916, -0.0629098, 1.50723, 0.0032579)
+
+[node name="hair_strand_002" parent="sprout_rig/Skeleton3D/hair_strand_002" index="0"]
+transform = Transform3D(1, 9.31323e-09, 7.45058e-09, 8.3819e-09, 1, -1.49012e-08, 3.72529e-09, 1.49012e-08, 1, 0, 0, 0)
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_003" parent="sprout_rig/Skeleton3D" index="12"]
+transform = Transform3D(1.35193, 0.711695, 1.84319, 0.589155, 1.98657, -1.19918, -1.88594, 1.13076, 0.946667, 0.0272244, 1.51025, 0.0191051)
+
+[node name="hair_strand_003" parent="sprout_rig/Skeleton3D/hair_strand_003" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_004" parent="sprout_rig/Skeleton3D" index="13"]
+transform = Transform3D(-2.0577, 0.607229, 1.06241, 0.365332, 2.28857, -0.600467, -1.16789, -0.353979, -2.05968, 0.0314338, 1.5067, 0.0168148)
+
+[node name="hair_strand_004" parent="sprout_rig/Skeleton3D/hair_strand_004" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_005" parent="sprout_rig/Skeleton3D" index="14"]
+transform = Transform3D(-1.95442, 0.567416, -1.2609, 0.315137, 2.30853, 0.550393, 1.3463, 0.283342, -1.95928, 0.0314338, 1.5067, 0.0168148)
+
+[node name="hair_strand_005" parent="sprout_rig/Skeleton3D/hair_strand_005" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_006" parent="sprout_rig/Skeleton3D" index="15"]
+transform = Transform3D(-1.17794, 0.502041, 2.02286, 0.599505, 2.307, -0.223457, -1.99615, 0.396604, -1.26082, 0.0314785, 1.50789, 0.0176358)
+
+[node name="hair_strand_006" parent="sprout_rig/Skeleton3D/hair_strand_006" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_007" parent="sprout_rig/Skeleton3D" index="16"]
+transform = Transform3D(1.93997, -0.0954642, 1.39963, 0.719435, 2.11823, -0.852704, -1.20436, 1.11156, 1.74514, 0.0280549, 1.51248, 0.0208662)
+
+[node name="hair_strand_007" parent="sprout_rig/Skeleton3D/hair_strand_007" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_008" parent="sprout_rig/Skeleton3D" index="17"]
+transform = Transform3D(2.20549, -0.0954653, 0.926445, 0.508768, 2.11823, -0.992897, -0.780108, 1.11156, 1.97166, 0.0281792, 1.50972, 0.019418)
+
+[node name="hair_strand_008" parent="sprout_rig/Skeleton3D/hair_strand_008" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_009" parent="sprout_rig/Skeleton3D" index="18"]
+transform = Transform3D(2.21954, -0.145149, 0.885527, 0.512626, 2.14418, -0.933418, -0.736506, 1.05498, 2.01895, 0.029091, 1.51047, 0.0234676)
+
+[node name="hair_strand_009" parent="sprout_rig/Skeleton3D/hair_strand_009" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_010" parent="sprout_rig/Skeleton3D" index="19"]
+transform = Transform3D(2.28685, -0.095465, 0.701994, 0.407265, 2.11823, -1.03866, -0.579693, 1.11156, 2.0396, 0.0281792, 1.50972, 0.019418)
+
+[node name="hair_strand_010" parent="sprout_rig/Skeleton3D/hair_strand_010" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_011" parent="sprout_rig/Skeleton3D" index="20"]
+transform = Transform3D(-0.123363, -0.652168, -2.30023, 0.558632, 2.23167, -0.66269, 2.32471, -0.570881, 0.0371823, 0.0268678, 1.47847, 0.00130189)
+
+[node name="hair_strand_011" parent="sprout_rig/Skeleton3D/hair_strand_011" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_012" parent="sprout_rig/Skeleton3D" index="21"]
+transform = Transform3D(2.39407, 3.82745e-13, -2.89185e-12, -4.33778e-13, 2.39407, -1.46265e-06, 2.75577e-12, 1.28428e-06, 2.39407, 0.0281792, 1.50972, 0.019418)
+
+[node name="hair_strand_012" parent="sprout_rig/Skeleton3D/hair_strand_012" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_013" parent="sprout_rig/Skeleton3D" index="22"]
+transform = Transform3D(2.37972, -0.0948117, 0.243998, 0.103775, 2.39037, -0.0832775, -0.240322, 0.0933544, 2.38015, 0.0187474, 1.49037, 0.020355)
+
+[node name="hair_strand_013" parent="sprout_rig/Skeleton3D/hair_strand_013" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_014" parent="sprout_rig/Skeleton3D" index="23"]
+transform = Transform3D(2.39407, 3.82745e-13, -2.89185e-12, -4.33778e-13, 2.39407, -1.46265e-06, 2.75577e-12, 1.28428e-06, 2.39407, 0.0281792, 1.50972, 0.019418)
+
+[node name="hair_strand_014" parent="sprout_rig/Skeleton3D/hair_strand_014" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_015" parent="sprout_rig/Skeleton3D" index="24"]
+transform = Transform3D(1, 1.59872e-13, -1.20792e-12, -1.81188e-13, 1, -6.10948e-07, 1.15108e-12, 5.36442e-07, 1, 0.0281792, 1.50972, 0.019418)
+
+[node name="hair_strand_015" parent="sprout_rig/Skeleton3D/hair_strand_015" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_016" parent="sprout_rig/Skeleton3D" index="25"]
+transform = Transform3D(1, 1.59872e-13, -1.20792e-12, -1.81188e-13, 1, -6.10948e-07, 1.15108e-12, 5.36442e-07, 1, 0.0281792, 1.50972, 0.019418)
+
+[node name="hair_strand_016" parent="sprout_rig/Skeleton3D/hair_strand_016" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_017" parent="sprout_rig/Skeleton3D" index="26"]
+transform = Transform3D(0.766254, 1.59872e-13, 0.642538, 3.92557e-07, 1, -4.68141e-07, -0.642538, 5.36442e-07, 0.766254, 0.0289146, 1.51248, 0.015115)
+
+[node name="hair_strand_017" parent="sprout_rig/Skeleton3D/hair_strand_017" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_018" parent="sprout_rig/Skeleton3D" index="27"]
+transform = Transform3D(0.471751, 1.59872e-13, 0.881732, 5.38692e-07, 1, -2.88215e-07, -0.881732, 5.36442e-07, 0.471751, 0.0339237, 1.50517, -0.00164178)
+
+[node name="hair_strand_018" parent="sprout_rig/Skeleton3D/hair_strand_018" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_019" parent="sprout_rig/Skeleton3D" index="28"]
+transform = Transform3D(-0.545629, 1.59872e-13, 0.838027, 5.11991e-07, 1, 3.33351e-07, -0.838027, 5.36442e-07, -0.545629, 0.0318057, 1.50827, -0.0155927)
+
+[node name="hair_strand_019" parent="sprout_rig/Skeleton3D/hair_strand_019" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_020" parent="sprout_rig/Skeleton3D" index="29"]
+transform = Transform3D(-0.910375, 0.0220653, 0.413196, 0.0137176, 0.999638, -0.0231589, -0.413557, -0.0154153, -0.910347, 0.00126616, 1.5061, -0.0235817)
+
+[node name="hair_strand_020" parent="sprout_rig/Skeleton3D/hair_strand_020" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="hair_strand_021" parent="sprout_rig/Skeleton3D" index="30"]
+transform = Transform3D(-0.990369, 1.59872e-13, -0.138449, -8.45851e-08, 1, 6.05064e-07, 0.138449, 5.36442e-07, -0.990369, -0.0079306, 1.52028, -0.0193756)
+
+[node name="hair_strand_021" parent="sprout_rig/Skeleton3D/hair_strand_021" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="lower_teeth" parent="sprout_rig/Skeleton3D" index="31"]
+transform = Transform3D(0.389878, -1.24345e-14, -1.06581e-13, -1.77636e-15, 0.444789, -0.0150812, 8.52651e-14, 0.0150812, 0.444789, 3.7849e-07, 1.33347, 0.0450953)
+
+[node name="lower_teeth" parent="sprout_rig/Skeleton3D/lower_teeth" index="0"]
+transform = Transform3D(1, -4.44089e-16, -7.10543e-15, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+"blend_shapes/Open Mouth" = 0.32168
+surface_material_override/0 = ExtResource("8_e0ons")
+
+[node name="tongue" parent="sprout_rig/Skeleton3D" index="32"]
+transform = Transform3D(1.3258, 3.33955e-13, -7.38964e-13, -3.2685e-13, 0.98987, 0.141979, 9.09495e-13, -0.141979, 0.98987, 3.93789e-14, 1.35424, 0.0650592)
+
+[node name="tongue" parent="sprout_rig/Skeleton3D/tongue" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 1.42109e-14, 1.49012e-08, 1, 0, 0, 0)
+"blend_shapes/Key 1" = 0.32168
+surface_material_override/0 = SubResource("StandardMaterial3D_koau1")
+
+[node name="upper_teeth" parent="sprout_rig/Skeleton3D" index="33"]
+transform = Transform3D(0.389878, -1.13243e-14, 7.81597e-14, 1.42109e-14, 0.437178, -0.0833067, -8.52651e-14, 0.0833067, 0.437178, 3.7849e-07, 1.35445, 0.0477313)
+
+[node name="upper_teeth" parent="sprout_rig/Skeleton3D/upper_teeth" index="0"]
+surface_material_override/0 = ExtResource("8_e0ons")
+
+[node name="handcuff" parent="sprout_rig/Skeleton3D" index="34"]
+transform = Transform3D(0.775163, 0.666848, -0.0959444, -0.67293, 0.759312, -0.159309, -0.0325051, 0.183107, 1.01004, 0.381183, 0.883908, -0.0207042)
+
+[node name="handcuff" parent="sprout_rig/Skeleton3D/handcuff" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4gqh2")
+
+[node name="arm_cuff_left" parent="sprout_rig/Skeleton3D" index="35"]
+transform = Transform3D(0.998308, 0.0580541, 0.00327608, -0.0580431, 0.998309, -0.0033216, -0.00346342, 0.00312586, 0.999989, -0.00508378, 1.00012, 0.0239911)
+
+[node name="arm_cuff_left" parent="sprout_rig/Skeleton3D/arm_cuff_left" index="0"]
+surface_material_override/0 = ExtResource("3_7ft2j")
+
+[node name="NurbsPath_001" parent="sprout_rig/Skeleton3D" index="36"]
+transform = Transform3D(0.917177, -0.00387362, -0.184878, -0.10003, 0.776356, -0.512516, 0.155527, 0.522172, 0.760629, -0.171914, 1.0658, -0.121808)
+
+[node name="NurbsPath_001" parent="sprout_rig/Skeleton3D/NurbsPath_001" index="0"]
+surface_material_override/0 = ExtResource("7_mh3fs")
+
+[node name="arm_cuff_right" parent="sprout_rig/Skeleton3D" index="37"]
+transform = Transform3D(0.998308, -0.0580529, -0.00327659, 0.058042, 0.998309, -0.00332148, 0.00346391, 0.00312561, 0.999989, 0.00508416, 1.00012, 0.0239912)
+
+[node name="arm_cuff_right" parent="sprout_rig/Skeleton3D/arm_cuff_right" index="0"]
+surface_material_override/0 = ExtResource("3_7ft2j")
+
+[node name="belt" parent="sprout_rig/Skeleton3D" index="38"]
+surface_material_override/0 = SubResource("StandardMaterial3D_h1u22")
+
+[node name="cloak" parent="sprout_rig/Skeleton3D" index="39"]
+surface_material_override/0 = ExtResource("8_givfg")
+
+[node name="coat" parent="sprout_rig/Skeleton3D" index="40"]
+surface_material_override/0 = ExtResource("3_tjbg3")
+
+[node name="sandals" parent="sprout_rig/Skeleton3D" index="41"]
+surface_material_override/0 = ExtResource("8_givfg")
+
+[node name="scarf" parent="sprout_rig/Skeleton3D" index="42"]
+surface_material_override/0 = ExtResource("8_givfg")
+
+[node name="sprout_body_mesh" parent="sprout_rig/Skeleton3D" index="43"]
+blend_shapes/Frown = 0.6993
+"blend_shapes/Open Mouth" = 0.32168
+surface_material_override/0 = ExtResource("10_0jsts")
+surface_material_override/1 = SubResource("StandardMaterial3D_tu2tw")
+surface_material_override/2 = ExtResource("5_w7v5d")
+
+[node name="trousers" parent="sprout_rig/Skeleton3D" index="44"]
+surface_material_override/0 = ExtResource("11_3ut6p")

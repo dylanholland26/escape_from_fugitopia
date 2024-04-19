@@ -1,0 +1,88 @@
+[gd_scene load_steps=20 format=3 uid="uid://bji30f882vas8"]
+
+[ext_resource type="Script" path="res://levels/main/main.gd" id="1_dbue0"]
+[ext_resource type="PackedScene" uid="uid://tr4yj5vmy1el" path="res://scenes/player/player.tscn" id="2_8ny1g"]
+[ext_resource type="Material" uid="uid://cb5spo3yg0hob" path="res://materials/default.material" id="2_82ro5"]
+[ext_resource type="PackedScene" uid="uid://cix5a7b8suwb1" path="res://scenes/button/button.tscn" id="4_24tvt"]
+[ext_resource type="PackedScene" uid="uid://xghfgq3shpyu" path="res://scenes/door/door.tscn" id="5_qi7jn"]
+[ext_resource type="PackedScene" uid="uid://crgq2htq5ejwy" path="res://scenes/ui/ui.tscn" id="7_nuany"]
+[ext_resource type="PackedScene" uid="uid://csh2c5kjbow43" path="res://item/pick_up/pickup.tscn" id="8_q5qug"]
+[ext_resource type="Resource" uid="uid://qs5bw83purl8" path="res://item/items/map.tres" id="9_y5v25"]
+[ext_resource type="Script" path="res://inventory/slot_data.gd" id="10_hsclv"]
+[ext_resource type="Script" path="res://inventory/inventory_data.gd" id="11_3cfsb"]
+[ext_resource type="PackedScene" uid="uid://bt2183r1o2u37" path="res://models/chest.tscn" id="11_jqsmo"]
+[ext_resource type="Resource" uid="uid://b1soaggg6hp44" path="res://item/items/apple.tres" id="12_c0vnv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2knmp"]
+size = Vector3(50, 0.2, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m0ped"]
+material = ExtResource("2_82ro5")
+size = Vector3(50, 0.4, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qdqc4"]
+size = Vector3(2, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bqqyr"]
+material = ExtResource("2_82ro5")
+size = Vector3(2, 1, 1)
+
+[sub_resource type="Resource" id="Resource_bwxvq"]
+script = ExtResource("10_hsclv")
+item_data = ExtResource("9_y5v25")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_k772i"]
+script = ExtResource("10_hsclv")
+item_data = ExtResource("12_c0vnv")
+quantity = 2
+
+[sub_resource type="Resource" id="Resource_xl2lc"]
+script = ExtResource("11_3cfsb")
+slot_datas = Array[ExtResource("10_hsclv")]([SubResource("Resource_k772i"), null, null])
+
+[node name="Main" type="Node"]
+script = ExtResource("1_dbue0")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_2knmp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_m0ped")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.925089, -0.0011498, 0.379749, -0.354653, -0.360122, 0.862864, 0.135764, -0.932905, -0.333552, 6.25399, 30.2274, -14.7456)
+light_color = Color(0.952941, 0.929412, 0.87451, 1)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_8ny1g")]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
+
+[node name="Table" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table"]
+shape = SubResource("BoxShape3D_qdqc4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Table"]
+mesh = SubResource("BoxMesh_bqqyr")
+
+[node name="Button" parent="." instance=ExtResource("4_24tvt")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00686514, 1.225, 5.70825)
+
+[node name="Door" parent="." instance=ExtResource("5_qi7jn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 1.2, 5.55)
+
+[node name="UI" parent="." instance=ExtResource("7_nuany")]
+
+[node name="Pickup" parent="." instance=ExtResource("8_q5qug")]
+transform = Transform3D(0.255986, 0, 0.966681, 0, 1, 0, -0.966681, 0, 0.255986, 0.74182, 1.7697, 5.375)
+slot_data = SubResource("Resource_bwxvq")
+
+[node name="Chest" parent="." instance=ExtResource("11_jqsmo")]
+transform = Transform3D(0.940888, 0, 0, 0, 0.940888, 0, 0, 0, 0.940888, 4.09284, -0.00158548, 1.79568)
+inventory_data = SubResource("Resource_xl2lc")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://crgq2htq5ejwy"]
+
+[ext_resource type="Script" path="res://scenes/ui/ui_manager.gd" id="1_mnbwa"]
+[ext_resource type="PackedScene" uid="uid://y08r4b7yreap" path="res://inventory/inventory.tscn" id="1_xef37"]
+[ext_resource type="PackedScene" uid="uid://dvemc4apg1b2u" path="res://item/buttons/menu.tscn" id="2_1p33g"]
+[ext_resource type="Script" path="res://inventory/inventory_interface.gd" id="2_sltf6"]
+[ext_resource type="PackedScene" uid="uid://bngshn18ixogd" path="res://inventory/player_icon.tscn" id="3_t0f1r"]
+[ext_resource type="PackedScene" uid="uid://bjjor27sg7c35" path="res://inventory/slot.tscn" id="4_x25cd"]
+[ext_resource type="Texture2D" uid="uid://d2eas8sjpi2ug" path="res://icons/cursor.png" id="5_fwp5m"]
+[ext_resource type="PackedScene" uid="uid://b0eqk3dram4oh" path="res://scenes/ui/textbox.tscn" id="5_gur4k"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_mnbwa")
+
+[node name="InventoryInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_sltf6")
+
+[node name="PlayerInventory" parent="InventoryInterface" instance=ExtResource("1_xef37")]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 560.0
+offset_right = 400.0
+offset_bottom = 600.0
+
+[node name="ExternalInventory" parent="InventoryInterface" instance=ExtResource("1_xef37")]
+visible = false
+layout_mode = 0
+offset_left = 758.0
+offset_top = 119.0
+offset_right = 798.0
+offset_bottom = 159.0
+
+[node name="GrabbedSlot" parent="InventoryInterface" instance=ExtResource("4_x25cd")]
+visible = false
+modulate = Color(1, 1, 1, 0.462745)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="menu_buttons" parent="." instance=ExtResource("2_1p33g")]
+offset_left = 930.0
+offset_top = 10.0
+offset_right = 970.0
+offset_bottom = 50.0
+scale = Vector2(0.6, 0.6)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 23.0
+offset_right = -32.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="CursorContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Cursor" type="TextureRect" parent="MarginContainer/CursorContainer"]
+layout_mode = 2
+texture = ExtResource("5_fwp5m")
+
+[node name="UIArea" type="Control" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PlayerIcon" parent="MarginContainer/UIArea" instance=ExtResource("3_t0f1r")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 9.0
+offset_top = 5.0
+offset_right = 137.0
+offset_bottom = 133.0
+
+[node name="TextBox" parent="MarginContainer/UIArea" instance=ExtResource("5_gur4k")]
+offset_left = 549.0
+offset_top = 504.0
+offset_right = 549.0
+offset_bottom = 504.0
+
+[connection signal="gui_input" from="MarginContainer/UIArea/PlayerIcon" to="InventoryInterface/ExternalInventory" method="_on_player_icon_gui_input"]
+[connection signal="text_finished" from="MarginContainer/UIArea/TextBox" to="." method="_on_text_finished"]

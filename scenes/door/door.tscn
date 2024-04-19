@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://xghfgq3shpyu"]
+
+[ext_resource type="Script" path="res://scenes/door/Door.gd" id="1_58jj3"]
+[ext_resource type="Material" uid="uid://cb5spo3yg0hob" path="res://materials/default.material" id="2_bypid"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_riyih"]
+size = Vector3(0.8, 2, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nor3u"]
+material = ExtResource("2_bypid")
+size = Vector3(0.8, 2, 0.1)
+
+[sub_resource type="Animation" id="Animation_4mtie"]
+resource_name = "Open"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape3D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 0, 2, 0)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 0, 2, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qj1fg"]
+_data = {
+"Open": SubResource("Animation_4mtie")
+}
+
+[node name="Door" type="AnimatableBody3D"]
+script = ExtResource("1_58jj3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_riyih")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_nor3u")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qj1fg")
+}

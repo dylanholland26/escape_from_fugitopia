@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=11 format=3 uid="uid://yagk7j5lpnwx"]
+
+[ext_resource type="Script" path="res://inventory/inventory_data.gd" id="1_v5xje"]
+[ext_resource type="Resource" uid="uid://b1soaggg6hp44" path="res://item/items/apple.tres" id="2_co64e"]
+[ext_resource type="Script" path="res://inventory/slot_data.gd" id="3_giwom"]
+[ext_resource type="Resource" uid="uid://fe82e38bgmm5" path="res://item/items/shield.tres" id="4_012ey"]
+[ext_resource type="Resource" uid="uid://bqb5y5k8ti7aq" path="res://item/items/potion.tres" id="6_8jmt5"]
+[ext_resource type="Resource" uid="uid://cvqq3e6h3fg7h" path="res://item/items/gold_coin.tres" id="8_kx1wg"]
+
+[sub_resource type="Resource" id="Resource_1f805"]
+script = ExtResource("3_giwom")
+item_data = ExtResource("4_012ey")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_am4c6"]
+script = ExtResource("3_giwom")
+item_data = ExtResource("2_co64e")
+quantity = 6
+
+[sub_resource type="Resource" id="Resource_6whtq"]
+script = ExtResource("3_giwom")
+item_data = ExtResource("6_8jmt5")
+quantity = 2
+
+[sub_resource type="Resource" id="Resource_6orr6"]
+script = ExtResource("3_giwom")
+item_data = ExtResource("8_kx1wg")
+quantity = 56
+
+[resource]
+script = ExtResource("1_v5xje")
+slot_datas = Array[ExtResource("3_giwom")]([SubResource("Resource_1f805"), SubResource("Resource_am4c6"), SubResource("Resource_6whtq"), SubResource("Resource_6orr6"), null, null])

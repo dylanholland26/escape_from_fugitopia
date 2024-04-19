@@ -1,0 +1,155 @@
+[gd_scene load_steps=18 format=3 uid="uid://42ruu15vbqpq"]
+
+[ext_resource type="Script" path="res://levels/main/main.gd" id="1_8gj1o"]
+[ext_resource type="PackedScene" uid="uid://bnmkratvwuwi6" path="res://levels/market_level/market_terrain.tscn" id="2_6t6d6"]
+[ext_resource type="PackedScene" uid="uid://tr4yj5vmy1el" path="res://scenes/player/player.tscn" id="2_kmu50"]
+[ext_resource type="PackedScene" uid="uid://dgs7youjxfqvh" path="res://levels/market_level/street_light.tscn" id="5_cx817"]
+[ext_resource type="PackedScene" uid="uid://bb4gqsk54mmt2" path="res://levels/market_level/crate.tscn" id="6_2d5nm"]
+[ext_resource type="PackedScene" uid="uid://bn4id7y4qgk5o" path="res://scenes/market/storehouse.tscn" id="7_33eg8"]
+[ext_resource type="PackedScene" uid="uid://crgq2htq5ejwy" path="res://scenes/ui/ui.tscn" id="8_ahogl"]
+[ext_resource type="PackedScene" uid="uid://c8f0a348m47ui" path="res://scenes/npc/sprout.tscn" id="8_vfvnl"]
+[ext_resource type="Resource" uid="uid://doolrtucfnarn" path="res://item/items/sword.tres" id="9_1ltx7"]
+[ext_resource type="PackedScene" uid="uid://csh2c5kjbow43" path="res://item/pick_up/pickup.tscn" id="9_1ywls"]
+[ext_resource type="Resource" uid="uid://qs5bw83purl8" path="res://item/items/map.tres" id="10_7y1f1"]
+[ext_resource type="Script" path="res://inventory/slot_data.gd" id="11_y6av2"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_br8f3"]
+sky_top_color = Color(0.196078, 0.176471, 0.368627, 1)
+sky_horizon_color = Color(0.59902, 0.586275, 0.62549, 1)
+sky_energy_multiplier = 0.15
+ground_bottom_color = Color(0.2, 0.168627, 0.133333, 1)
+ground_horizon_color = Color(0.59902, 0.586275, 0.62549, 1)
+
+[sub_resource type="Sky" id="Sky_0jrk2"]
+sky_material = SubResource("ProceduralSkyMaterial_br8f3")
+
+[sub_resource type="Environment" id="Environment_na6p2"]
+background_mode = 2
+sky = SubResource("Sky_0jrk2")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Resource" id="Resource_cjehb"]
+script = ExtResource("11_y6av2")
+item_data = ExtResource("10_7y1f1")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_lchj0"]
+script = ExtResource("11_y6av2")
+item_data = ExtResource("9_1ltx7")
+quantity = 1
+
+[node name="Market" type="Node"]
+script = ExtResource("1_8gj1o")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_na6p2")
+
+[node name="Player" parent="." instance=ExtResource("2_kmu50")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.5309, 0, 31.0903)
+
+[node name="market_terrain" parent="." instance=ExtResource("2_6t6d6")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.925089, -0.00114958, 0.379749, -0.354653, -0.360122, 0.862864, 0.135764, -0.932905, -0.333552, 6.25399, 155.266, -66.3408)
+light_color = Color(0.952941, 0.933333, 0.835294, 1)
+light_energy = 0.1
+light_angular_distance = 10.0
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="lights" type="Node3D" parent="."]
+
+[node name="street_light_01" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.7658, 0, 26.5715)
+
+[node name="street_light_17" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11539, 0, 17.0679)
+
+[node name="street_light_18" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2263, 0, 17.0679)
+
+[node name="street_light_02" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.4125, 0.0124327, 26.6631)
+
+[node name="street_light_03" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(0.977827, 0, 0.209414, 0, 1, 0, -0.209414, 0, 0.977827, 45.8299, 0, 19.8598)
+
+[node name="street_light_04" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(0.977827, 0, 0.209414, 0, 1, 0, -0.209414, 0, 0.977827, 52.3484, 0.0124327, 18.5575)
+
+[node name="street_light_05" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(0.817844, 0.0126358, 0.575302, -0.010335, 0.99992, -0.00727001, -0.575348, 2.81556e-09, 0.817909, 43.3978, 0.121234, 12.1275)
+
+[node name="street_light_06" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(0.817844, 0.0126358, 0.575302, -0.010335, 0.99992, -0.00727001, -0.575348, 2.81556e-09, 0.817909, 48.8866, 0.0195519, 8.37821)
+
+[node name="street_light_07" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(0.205132, 0.00923586, 0.978691, -0.010335, 0.99992, -0.00727001, -0.97868, -0.00862343, 0.205211, 32.1891, 0.014063, 4.18334)
+
+[node name="street_light_08" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(0.205132, 0.00923586, 0.978691, -0.010335, 0.99992, -0.00727001, -0.97868, -0.00862343, 0.205211, 33.6422, 0.0135411, -2.30296)
+
+[node name="street_light_09" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(0.0456333, 0.00763993, 0.979, -0.0150584, 1.00643, -0.00712103, -1.45624, -0.0101677, 0.0307519, 16.7951, 0.0236265, 3.75467)
+
+[node name="street_light_10" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(0.0456333, 0.00763993, 0.979, -0.0150584, 1.00643, -0.00712103, -1.45624, -0.0101677, 0.0307519, 17.0949, 0.0252632, -5.92154)
+
+[node name="street_light_11" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(-0.0287926, 0.00713013, 0.980615, -0.0161449, 1.00719, -0.00713047, -1.56181, -0.010543, -0.0180043, -24.6034, 0.0248794, 4.2082)
+is_lit = false
+
+[node name="street_light_12" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(-0.0287926, 0.00713013, 0.980615, -0.0161449, 1.00719, -0.00713047, -1.56181, -0.010543, -0.0180043, -24.7853, 0.0263565, -6.16946)
+is_lit = false
+
+[node name="street_light_13" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(0.308031, 0.00923219, 0.961508, -0.0161449, 1.00719, -0.00713047, -1.53141, -0.00876133, 0.193475, -38.1986, 0.0149987, 3.76877)
+is_lit = false
+
+[node name="street_light_14" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(0.308031, 0.00923219, 0.961508, -0.0161449, 1.00719, -0.00713047, -1.53141, -0.00876133, 0.193475, -36.1427, 0.00233571, -6.40482)
+is_lit = false
+
+[node name="street_light_15" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(0.712686, 0.011266, 0.87272, -0.0161449, 1.00719, -0.00713047, -1.39003, -0.00592207, 0.447538, -51.2724, 0.0248794, -1.6546)
+is_lit = false
+
+[node name="street_light_16" parent="lights" instance=ExtResource("5_cx817")]
+transform = Transform3D(0.712686, 0.011266, 0.87272, -0.0161449, 1.00719, -0.00713047, -1.39003, -0.00592207, 0.447538, -46.5285, 0.0281734, -10.8863)
+is_lit = false
+
+[node name="objects" type="Node3D" parent="."]
+
+[node name="crate_01" parent="objects" instance=ExtResource("6_2d5nm")]
+transform = Transform3D(0.93431, 0, 0.356461, 0, 1, 0, -0.356461, 0, 0.93431, 29.4215, 0.65756, 4.08462)
+
+[node name="crate_02" parent="objects" instance=ExtResource("6_2d5nm")]
+transform = Transform3D(0.166562, 0, 0.986031, 0, 1, 0, -0.986031, 0, 0.166562, 27.7278, 0.65756, 4.08462)
+
+[node name="crate_04" parent="objects" instance=ExtResource("6_2d5nm")]
+transform = Transform3D(0.008011, 0, 0.999968, 0, 1, 0, -0.999968, 0, 0.008011, 22.7946, 0.65756, -5.26674)
+
+[node name="crate_03" parent="objects" instance=ExtResource("6_2d5nm")]
+transform = Transform3D(-0.0508893, 0, 0.998704, 0, 1, 0, -0.998704, 0, -0.0508893, 28.8269, 1.98182, 4.33847)
+
+[node name="map" parent="objects" instance=ExtResource("9_1ywls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5942, 0.492311, -4.97235)
+slot_data = SubResource("Resource_cjehb")
+
+[node name="sword" parent="objects" instance=ExtResource("9_1ywls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.6367, 0.405539, 12.7859)
+slot_data = SubResource("Resource_lchj0")
+
+[node name="storehouse" parent="." instance=ExtResource("7_33eg8")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.23572, 0, 25.2221)
+
+[node name="SproutController" parent="." instance=ExtResource("8_vfvnl")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 16.6369)
+
+[node name="UI" parent="." instance=ExtResource("8_ahogl")]
+
+[connection signal="player_detected" from="SproutController" to="." method="_on_sprout_controller_player_detected"]
+[connection signal="text_written" from="SproutController" to="UI" method="_on_text_written"]
+[connection signal="text_finished" from="UI" to="SproutController" method="_on_text_finished"]

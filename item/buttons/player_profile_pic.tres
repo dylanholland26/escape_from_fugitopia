@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://blp1jihrgoj76"]
+
+[ext_resource type="Script" path="res://item/item_data.gd" id="1_jii52"]
+[ext_resource type="Texture2D" uid="uid://bbxa6uaojhjfj" path="res://item/player_profile_pic.png" id="2_d7f04"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gnsh"]
+atlas = ExtResource("2_d7f04")
+region = Rect2(64, 32, 352, 384)
+
+[resource]
+script = ExtResource("1_jii52")
+name = "PlayerIcon"
+description = "Picture of Sprout"
+stackable = false
+texture = SubResource("AtlasTexture_1gnsh")

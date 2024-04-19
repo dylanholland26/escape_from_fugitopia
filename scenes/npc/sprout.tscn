@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8f0a348m47ui"]
+
+[ext_resource type="PackedScene" uid="uid://gt05p52c23b7" path="res://scenes/npc/sprout_model.tscn" id="1_aekhk"]
+[ext_resource type="Script" path="res://scenes/npc/sprout.gd" id="1_g6vr7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vaxq1"]
+radius = 0.189578
+height = 1.54322
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kyymi"]
+radius = 3.88378
+
+[node name="SproutController" type="CharacterBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_g6vr7")
+
+[node name="SproutModel" parent="." instance=ExtResource("1_aekhk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SproutCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.771, 0)
+shape = SubResource("CapsuleShape3D_vaxq1")
+
+[node name="PlayerDetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.996597, 0)
+shape = SubResource("CylinderShape3D_kyymi")
+
+[connection signal="body_entered" from="PlayerDetectionArea" to="." method="_on_player_detection_area_body_entered"]
