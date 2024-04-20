@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bnrfiaem2qndi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbk26"]
+albedo_color = Color(0, 0, 0, 1)
+emission_energy_multiplier = 0.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gpksc"]
+
+[node name="EnemyForm" type="Node3D"]
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
+transform = Transform3D(0.149483, 0, 0, 0, 1.43547, 0, 0, 0, 0.256694, 0, 0, 0.00456905)
+material_override = SubResource("StandardMaterial3D_dbk26")
+mesh = SubResource("CapsuleMesh_gpksc")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Pivot/MeshInstance3D"]
+transform = Transform3D(-6.68966, -0.0201253, -0.0203495, -0.00485205, 0.928612, 0.676675, 0.00267525, 2.29427, -3.14844, 0, 0.409393, 0.041399)
+spot_angle = 21.75

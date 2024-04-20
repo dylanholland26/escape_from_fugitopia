@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dvemc4apg1b2u" path="res://item/buttons/menu.tscn" id="2_1p33g"]
 [ext_resource type="Script" path="res://inventory/inventory_interface.gd" id="2_sltf6"]
 [ext_resource type="PackedScene" uid="uid://bngshn18ixogd" path="res://inventory/player_icon.tscn" id="3_t0f1r"]
-[ext_resource type="PackedScene" uid="uid://bjjor27sg7c35" path="res://inventory/slot.tscn" id="4_x25cd"]
+[ext_resource type="PackedScene" uid="uid://bjjor27sg7c35" path="res://inventory/slot.tscn" id="4_ujtd1"]
 [ext_resource type="Texture2D" uid="uid://d2eas8sjpi2ug" path="res://icons/cursor.png" id="5_fwp5m"]
 [ext_resource type="PackedScene" uid="uid://b0eqk3dram4oh" path="res://scenes/ui/textbox.tscn" id="5_gur4k"]
 
@@ -13,6 +13,7 @@
 script = ExtResource("1_mnbwa")
 
 [node name="InventoryInterface" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -29,15 +30,13 @@ offset_bottom = 600.0
 [node name="ExternalInventory" parent="InventoryInterface" instance=ExtResource("1_xef37")]
 visible = false
 layout_mode = 0
-offset_left = 758.0
-offset_top = 119.0
-offset_right = 798.0
-offset_bottom = 159.0
+offset_left = 706.0
+offset_top = 158.0
+offset_right = 746.0
+offset_bottom = 198.0
 
-[node name="GrabbedSlot" parent="InventoryInterface" instance=ExtResource("4_x25cd")]
+[node name="GrabbedSlot" parent="InventoryInterface" instance=ExtResource("4_ujtd1")]
 visible = false
-modulate = Color(1, 1, 1, 0.462745)
-self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
@@ -81,10 +80,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 9.0
-offset_top = 5.0
-offset_right = 137.0
-offset_bottom = 133.0
+offset_left = 28.0
+offset_top = 17.0
+offset_right = 156.0
+offset_bottom = 145.0
 
 [node name="TextBox" parent="MarginContainer/UIArea" instance=ExtResource("5_gur4k")]
 offset_left = 549.0
@@ -92,5 +91,6 @@ offset_top = 504.0
 offset_right = 549.0
 offset_bottom = 504.0
 
-[connection signal="gui_input" from="MarginContainer/UIArea/PlayerIcon" to="InventoryInterface/ExternalInventory" method="_on_player_icon_gui_input"]
+[connection signal="drop_slot_data" from="InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
+[connection signal="gui_input" from="InventoryInterface" to="InventoryInterface" method="_on_gui_input"]
 [connection signal="text_finished" from="MarginContainer/UIArea/TextBox" to="." method="_on_text_finished"]

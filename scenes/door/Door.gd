@@ -1,5 +1,6 @@
 extends AnimatableBody3D
 
+
 var is_open = false
 
 func toggle():

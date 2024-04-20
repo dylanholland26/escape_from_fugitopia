@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://tr4yj5vmy1el"]
+[gd_scene load_steps=7 format=3 uid="uid://tr4yj5vmy1el"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_xi87y"]
 [ext_resource type="Resource" uid="uid://yagk7j5lpnwx" path="res://inventory.tres" id="2_r2va0"]
+[ext_resource type="Script" path="res://scenes/player/pivot.gd" id="3_m5qn3"]
+[ext_resource type="Script" path="res://scenes/player/keypad_interaction.gd" id="4_gi82v"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jwc0b"]
 radius = 0.3
@@ -17,6 +19,7 @@ inventory_data = ExtResource("2_r2va0")
 
 [node name="Pivot" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("3_m5qn3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
 mesh = SubResource("CapsuleMesh_jwc0b")
@@ -30,6 +33,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 
 target_position = Vector3(0, -5, 0)
 collision_mask = 2
 collide_with_areas = true
+script = ExtResource("4_gi82v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00785, 0)

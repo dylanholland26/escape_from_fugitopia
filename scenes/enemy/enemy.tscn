@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn5obdmgfd8vv"]
+
+[ext_resource type="Script" path="res://path_scene.gd" id="1_fxmhj"]
+[ext_resource type="PackedScene" uid="uid://bnrfiaem2qndi" path="res://scenes/enemy_form/enemy_form.tscn" id="2_nvh15"]
+
+[sub_resource type="Curve3D" id="Curve3D_cki4y"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6.01209, 0, -0.00459995, 0, 0, 0, 0, 0, 0, 2.8535, 0, -0.010209, 0, 0, 0, 0, 0, 0, -6.01209, 0, -0.00459995),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[node name="Enemy" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00460005, 0, 0.00459979)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(0.901124, 0, 0, 0, 0.901124, 0, 0, 0, 0.901124, 0.432393, 0, 0.00919958)
+curve = SubResource("Curve3D_cki4y")
+script = ExtResource("1_fxmhj")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(-0.0113962, 0, -0.999935, 0, 1, 0, 0.999935, 0, -0.0113962, -6.01209, 0, -0.00459995)
+
+[node name="EnemyForm" parent="Path3D/PathFollow3D" instance=ExtResource("2_nvh15")]
+transform = Transform3D(-1, 0, 8.74279e-08, 0, 1, 0, -8.74279e-08, 0, -1, 0, 0, 0)

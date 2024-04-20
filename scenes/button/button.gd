@@ -2,7 +2,6 @@ extends StaticBody3D
 
 signal pressed
 
-
 func _ready():
 	$Mesh/Base/Highlight.hide()
 	$Mesh/Button/Highlight.hide()
