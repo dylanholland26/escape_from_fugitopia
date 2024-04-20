@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bji30f882vas8"]
+[gd_scene load_steps=61 format=3 uid="uid://bji30f882vas8"]
 
 [ext_resource type="Script" path="res://levels/main/main.gd" id="1_dbue0"]
 [ext_resource type="PackedScene" uid="uid://tr4yj5vmy1el" path="res://scenes/player/player.tscn" id="2_8ny1g"]
@@ -6,12 +6,28 @@
 [ext_resource type="PackedScene" uid="uid://cix5a7b8suwb1" path="res://scenes/button/button.tscn" id="4_24tvt"]
 [ext_resource type="PackedScene" uid="uid://xghfgq3shpyu" path="res://scenes/door/door.tscn" id="5_qi7jn"]
 [ext_resource type="PackedScene" uid="uid://crgq2htq5ejwy" path="res://scenes/ui/ui.tscn" id="7_nuany"]
-[ext_resource type="PackedScene" uid="uid://csh2c5kjbow43" path="res://item/pick_up/pickup.tscn" id="8_q5qug"]
-[ext_resource type="Resource" uid="uid://qs5bw83purl8" path="res://item/items/map.tres" id="9_y5v25"]
-[ext_resource type="Script" path="res://inventory/slot_data.gd" id="10_hsclv"]
-[ext_resource type="Script" path="res://inventory/inventory_data.gd" id="11_3cfsb"]
-[ext_resource type="PackedScene" uid="uid://bt2183r1o2u37" path="res://models/chest.tscn" id="11_jqsmo"]
-[ext_resource type="Resource" uid="uid://b1soaggg6hp44" path="res://item/items/apple.tres" id="12_c0vnv"]
+[ext_resource type="PackedScene" uid="uid://bt7kjfsih56cq" path="res://scenes/level_terrain/market_inside_terrain.tscn" id="7_vx36c"]
+[ext_resource type="PackedScene" uid="uid://bxcan7a1wa8bt" path="res://scenes/door/door._swing.tscn" id="8_1sim6"]
+[ext_resource type="PackedScene" uid="uid://cn5obdmgfd8vv" path="res://scenes/enemy/enemy.tscn" id="10_njv57"]
+[ext_resource type="PackedScene" uid="uid://bb4gqsk54mmt2" path="res://levels/market_level/crate.tscn" id="10_r3vju"]
+[ext_resource type="PackedScene" uid="uid://csh2c5kjbow43" path="res://item/pick_up/pickup.tscn" id="11_f55yv"]
+[ext_resource type="Resource" uid="uid://g55q6d3u88uj" path="res://item/items/Clue#1.tres" id="12_wrb6x"]
+[ext_resource type="Script" path="res://inventory/slot_data.gd" id="13_67fxe"]
+[ext_resource type="PackedScene" uid="uid://bt2183r1o2u37" path="res://models/chest.tscn" id="14_ijmwv"]
+[ext_resource type="Script" path="res://inventory/inventory_data.gd" id="15_eme0d"]
+[ext_resource type="Resource" uid="uid://bp24mp5pwrl53" path="res://item/items/key.tres" id="16_6rtpr"]
+[ext_resource type="Texture2D" uid="uid://bb88ihj7oey8b" path="res://item/weather_cipher.tres" id="17_hceyj"]
+[ext_resource type="Texture2D" uid="uid://dt1yn1hqk2pvh" path="res://item/arrow_cipher.tres" id="18_4ug1q"]
+[ext_resource type="Texture2D" uid="uid://dxrwrwcn4wc33" path="res://item/skulls_cipher.tres" id="19_4gcem"]
+[ext_resource type="Texture2D" uid="uid://bqi0hj15x085y" path="res://item/Shapes/shape_purple_circle.tres" id="20_jwotb"]
+[ext_resource type="Texture2D" uid="uid://ctxk28g6312bf" path="res://item/Shapes/shape_blue_triangle.tres" id="21_c3h3y"]
+[ext_resource type="Texture2D" uid="uid://d0p8gvt64krm3" path="res://item/Shapes/shape_green_star.tres" id="22_ogdem"]
+[ext_resource type="Texture2D" uid="uid://dc3dusol5pp63" path="res://item/Shapes/shape_orange_waterdrop.tres" id="23_od0g7"]
+[ext_resource type="Texture2D" uid="uid://bv8h3srmq2hdq" path="res://item/Shapes/shape_pink_lightningbolt.tres" id="24_awym8"]
+[ext_resource type="Texture2D" uid="uid://dmqns71vdlhdn" path="res://item/Shapes/shape_red_square.tres" id="25_sxgsm"]
+[ext_resource type="Texture2D" uid="uid://vbtharujgccp" path="res://item/Shapes/shape_white_tick.tres" id="26_n7mvh"]
+[ext_resource type="Texture2D" uid="uid://tq2bq112uogc" path="res://item/Shapes/shape_yellow_cross.tres" id="27_pf6fa"]
+[ext_resource type="PackedScene" uid="uid://djy8pkj70otap" path="res://inventory/keypad.tscn" id="28_btndm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2knmp"]
 size = Vector3(50, 0.2, 50)
@@ -27,24 +43,107 @@ size = Vector3(2, 1, 1)
 material = ExtResource("2_82ro5")
 size = Vector3(2, 1, 1)
 
-[sub_resource type="Resource" id="Resource_bwxvq"]
-script = ExtResource("10_hsclv")
-item_data = ExtResource("9_y5v25")
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m1bvh"]
+sky_top_color = Color(0.196078, 0.176471, 0.368627, 1)
+sky_horizon_color = Color(0.59902, 0.586275, 0.62549, 1)
+sky_energy_multiplier = 0.15
+ground_bottom_color = Color(0.2, 0.168627, 0.133333, 1)
+ground_horizon_color = Color(0.59902, 0.586275, 0.62549, 1)
+
+[sub_resource type="Sky" id="Sky_0jrk2"]
+sky_material = SubResource("ProceduralSkyMaterial_m1bvh")
+
+[sub_resource type="Environment" id="Environment_mguax"]
+background_mode = 2
+sky = SubResource("Sky_0jrk2")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Resource" id="Resource_4gs7n"]
+script = ExtResource("13_67fxe")
+item_data = ExtResource("12_wrb6x")
 quantity = 1
 
-[sub_resource type="Resource" id="Resource_k772i"]
-script = ExtResource("10_hsclv")
-item_data = ExtResource("12_c0vnv")
-quantity = 2
+[sub_resource type="Resource" id="Resource_28eov"]
+script = ExtResource("13_67fxe")
+item_data = ExtResource("16_6rtpr")
+quantity = 1
 
-[sub_resource type="Resource" id="Resource_xl2lc"]
-script = ExtResource("11_3cfsb")
-slot_datas = Array[ExtResource("10_hsclv")]([SubResource("Resource_k772i"), null, null])
+[sub_resource type="Resource" id="Resource_2yxx1"]
+script = ExtResource("15_eme0d")
+slot_datas = Array[ExtResource("13_67fxe")]([SubResource("Resource_28eov"), null, null])
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xybpt"]
+albedo_texture = ExtResource("17_hceyj")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3an57"]
+material = SubResource("StandardMaterial3D_xybpt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gvubt"]
+albedo_texture = ExtResource("18_4ug1q")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fy3a7"]
+material = SubResource("StandardMaterial3D_gvubt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e0frt"]
+albedo_texture = ExtResource("19_4gcem")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_atopd"]
+material = SubResource("StandardMaterial3D_e0frt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1x20p"]
+albedo_texture = ExtResource("20_jwotb")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_46ylr"]
+material = SubResource("StandardMaterial3D_1x20p")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_feqvs"]
+albedo_texture = ExtResource("21_c3h3y")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2hlp7"]
+material = SubResource("StandardMaterial3D_feqvs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3ar6"]
+albedo_texture = ExtResource("22_ogdem")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_32vih"]
+material = SubResource("StandardMaterial3D_q3ar6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rruwg"]
+albedo_texture = ExtResource("23_od0g7")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7yaoy"]
+material = SubResource("StandardMaterial3D_rruwg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7qy7i"]
+albedo_texture = ExtResource("24_awym8")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_va3ym"]
+material = SubResource("StandardMaterial3D_7qy7i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amrsb"]
+albedo_texture = ExtResource("25_sxgsm")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4qv02"]
+material = SubResource("StandardMaterial3D_amrsb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0ee3"]
+albedo_texture = ExtResource("26_n7mvh")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5h0xi"]
+material = SubResource("StandardMaterial3D_s0ee3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrudl"]
+albedo_texture = ExtResource("27_pf6fa")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fcmqq"]
+material = SubResource("StandardMaterial3D_lrudl")
 
 [node name="Main" type="Node"]
 script = ExtResource("1_dbue0")
 
 [node name="Ground" type="StaticBody3D" parent="."]
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("BoxShape3D_2knmp")
@@ -52,13 +151,8 @@ shape = SubResource("BoxShape3D_2knmp")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("BoxMesh_m0ped")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.925089, -0.0011498, 0.379749, -0.354653, -0.360122, 0.862864, 0.135764, -0.932905, -0.333552, 6.25399, 30.2274, -14.7456)
-light_color = Color(0.952941, 0.929412, 0.87451, 1)
-shadow_enabled = true
-
 [node name="Player" parent="." instance=ExtResource("2_8ny1g")]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, -1.10628, 0.00701964, -1.28158)
 
 [node name="Table" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 6)
@@ -72,17 +166,135 @@ mesh = SubResource("BoxMesh_bqqyr")
 [node name="Button" parent="." instance=ExtResource("4_24tvt")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00686514, 1.225, 5.70825)
 
+[node name="Button2" parent="." instance=ExtResource("4_24tvt")]
+transform = Transform3D(-0.132071, 1.1546e-08, 0, -1.1546e-08, -0.132071, 0, 0, 0, 0.132071, 1.82471, 2.96555, -1.89024)
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
 [node name="Door" parent="." instance=ExtResource("5_qi7jn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 1.2, 5.55)
 
 [node name="UI" parent="." instance=ExtResource("7_nuany")]
 
-[node name="Pickup" parent="." instance=ExtResource("8_q5qug")]
-transform = Transform3D(0.255986, 0, 0.966681, 0, 1, 0, -0.966681, 0, 0.255986, 0.74182, 1.7697, 5.375)
-slot_data = SubResource("Resource_bwxvq")
+[node name="market_inside_terrain2" parent="." instance=ExtResource("7_vx36c")]
 
-[node name="Chest" parent="." instance=ExtResource("11_jqsmo")]
-transform = Transform3D(0.940888, 0, 0, 0, 0.940888, 0, 0, 0, 0.940888, 4.09284, -0.00158548, 1.79568)
-inventory_data = SubResource("Resource_xl2lc")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mguax")
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.925089, -0.00114954, 0.379749, -0.354653, -0.360122, 0.862864, 0.135764, -0.932905, -0.333552, 6.25399, 155.266, -66.3408)
+light_energy = 0.1
+light_indirect_energy = 0.0
+light_angular_distance = 10.0
+light_bake_mode = 1
+shadow_enabled = true
+
+[node name="door" parent="." instance=ExtResource("8_1sim6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0223665, 1.04117, 1.95004)
+
+[node name="crate" parent="." instance=ExtResource("10_r3vju")]
+transform = Transform3D(0.504415, 0, 0, 0, 0.504415, 0, 0, 0, 0.504415, -10.752, 0.398153, 4.49714)
+
+[node name="crate3" parent="." instance=ExtResource("10_r3vju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.01627, 0.75113, 8.71133)
+
+[node name="crate6" parent="." instance=ExtResource("10_r3vju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.97342, 0.75113, 4.72963)
+
+[node name="crate7" parent="." instance=ExtResource("10_r3vju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.58498, 2.05689, 4.72963)
+
+[node name="crate5" parent="." instance=ExtResource("10_r3vju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31224, 0.75113, 4.72963)
+
+[node name="crate4" parent="." instance=ExtResource("10_r3vju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02301, 0.75113, 7.3742)
+
+[node name="crate2" parent="." instance=ExtResource("10_r3vju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.75113, 11.8133)
+
+[node name="Enemy" parent="." instance=ExtResource("10_njv57")]
+transform = Transform3D(0.00191982, 0, 0.999998, 0, 1, 0, -0.999998, 0, 0.00191982, -8.79738, 1.35135, 7.37396)
+
+[node name="lighting" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="lighting"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.30294, 0)
+light_color = Color(0.866667, 0.823529, 0.509804, 1)
+light_energy = 6.0
+spot_range = 3.44
+spot_attenuation = 0.420449
+spot_angle = 63.0923
+spot_angle_attenuation = 0.933034
+
+[node name="Clue#1" parent="." instance=ExtResource("11_f55yv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015358, 2.65612, 1.50112)
+visible = false
+slot_data = SubResource("Resource_4gs7n")
+
+[node name="Timer" type="Timer" parent="Clue#1"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Chest" parent="." instance=ExtResource("14_ijmwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59061, -0.645923, 1.49486)
+inventory_data = SubResource("Resource_2yxx1")
+
+[node name="Weather_Cipher" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.11546e-08, 0.218855, -9.56648e-09, 0, -9.56648e-09, -0.218855, -0.941507, -9.56648e-09, 4.18164e-16, -1.91757, 1.64986, -0.0823019)
+mesh = SubResource("PlaneMesh_3an57")
+
+[node name="Arrow_Cipher" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.681598, 0, -8.15353e-09, -2.97936e-08, 3.56402e-16, -0.186531, 0, 0.186531, 3.56402e-16, 0, 1.67221, -1.96159)
+mesh = SubResource("PlaneMesh_fy3a7")
+
+[node name="Skull_Cipher" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.01994e-08, -0.234068, 1.02314e-08, 0, -1.02314e-08, -0.234068, 0.855301, 2.79123e-09, -1.22009e-16, 1.99869, 1.67221, -0.265495)
+mesh = SubResource("PlaneMesh_atopd")
+
+[node name="Shape1" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.84371e-09, -0.238469, 1.04238e-08, 0, -1.04238e-08, -0.238469, 0.238469, 2.84371e-09, -1.24302e-16, 1.99616, 0.258325, 1.0161)
+mesh = SubResource("PlaneMesh_46ylr")
+
+[node name="Shape2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.84371e-09, -0.238469, 1.04238e-08, 0, -1.04238e-08, -0.238469, 0.238469, 2.84371e-09, -1.24302e-16, 1.99616, 0.258325, -1.1737)
+mesh = SubResource("PlaneMesh_2hlp7")
+
+[node name="Shape3" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.12714e-08, 0.238469, 1.04238e-08, 9.11277e-16, 1.04238e-08, -0.238469, -0.238469, 3.12714e-08, 4.55638e-16, -1.99781, 0.258325, 0.967659)
+mesh = SubResource("PlaneMesh_32vih")
+
+[node name="Shape4" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.12714e-08, 0.238469, 1.04238e-08, 9.11277e-16, 1.04238e-08, -0.238469, -0.238469, 3.12714e-08, 4.55638e-16, -1.99781, 0.258325, -1.12708)
+mesh = SubResource("PlaneMesh_7yaoy")
+
+[node name="Shape5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.238469, 0, -1.04238e-08, -1.04238e-08, 4.55638e-16, -0.238469, 0, 0.238469, 4.55638e-16, -1.05575, 0.258325, -1.99559)
+mesh = SubResource("PlaneMesh_va3ym")
+
+[node name="Shape6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.23461, 0, -1.02551e-08, -1.02551e-08, 4.48267e-16, -0.23461, 0, 0.23461, 4.48267e-16, 1.17989, 0.258325, -1.99559)
+mesh = SubResource("PlaneMesh_4qv02")
+
+[node name="Shape7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.23461, 2.05103e-08, 0, 8.96533e-16, 1.02551e-08, -0.23461, -2.05103e-08, -0.23461, -1.02551e-08, -1.24419, 0.258325, 1.88531)
+mesh = SubResource("PlaneMesh_5h0xi")
+
+[node name="Shape8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.23461, 2.05103e-08, 0, 8.96533e-16, 1.02551e-08, -0.23461, -2.05103e-08, -0.23461, -1.02551e-08, 1.20983, 0.258325, 1.8945)
+mesh = SubResource("PlaneMesh_fcmqq")
+
+[node name="Keypad" parent="." instance=ExtResource("28_btndm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.814662, 1.11513, 1.87826)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_pressed"]
+[connection signal="dropping_item" from="UI" to="." method="_on_ui_dropping_item"]
+[connection signal="timeout" from="Clue#1/Timer" to="." method="_on_timer_timeout"]
+[connection signal="on_correct_password" from="Keypad" to="." method="_on_keypad_on_correct_password"]
+[connection signal="on_wrong_password" from="Keypad" to="." method="_on_keypad_on_wrong_password"]

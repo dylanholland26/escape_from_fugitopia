@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://42ruu15vbqpq"]
+[gd_scene load_steps=12 format=3 uid="uid://42ruu15vbqpq"]
 
 [ext_resource type="Script" path="res://levels/main/main.gd" id="1_8gj1o"]
 [ext_resource type="PackedScene" uid="uid://bnmkratvwuwi6" path="res://levels/market_level/market_terrain.tscn" id="2_6t6d6"]
@@ -8,10 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bn4id7y4qgk5o" path="res://scenes/market/storehouse.tscn" id="7_33eg8"]
 [ext_resource type="PackedScene" uid="uid://crgq2htq5ejwy" path="res://scenes/ui/ui.tscn" id="8_ahogl"]
 [ext_resource type="PackedScene" uid="uid://c8f0a348m47ui" path="res://scenes/npc/sprout.tscn" id="8_vfvnl"]
-[ext_resource type="Resource" uid="uid://doolrtucfnarn" path="res://item/items/sword.tres" id="9_1ltx7"]
-[ext_resource type="PackedScene" uid="uid://csh2c5kjbow43" path="res://item/pick_up/pickup.tscn" id="9_1ywls"]
-[ext_resource type="Resource" uid="uid://qs5bw83purl8" path="res://item/items/map.tres" id="10_7y1f1"]
-[ext_resource type="Script" path="res://inventory/slot_data.gd" id="11_y6av2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_br8f3"]
 sky_top_color = Color(0.196078, 0.176471, 0.368627, 1)
@@ -20,24 +16,14 @@ sky_energy_multiplier = 0.15
 ground_bottom_color = Color(0.2, 0.168627, 0.133333, 1)
 ground_horizon_color = Color(0.59902, 0.586275, 0.62549, 1)
 
-[sub_resource type="Sky" id="Sky_0jrk2"]
+[sub_resource type="Sky" id="Sky_2vuq5"]
 sky_material = SubResource("ProceduralSkyMaterial_br8f3")
 
 [sub_resource type="Environment" id="Environment_na6p2"]
 background_mode = 2
-sky = SubResource("Sky_0jrk2")
+sky = SubResource("Sky_2vuq5")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="Resource" id="Resource_cjehb"]
-script = ExtResource("11_y6av2")
-item_data = ExtResource("10_7y1f1")
-quantity = 1
-
-[sub_resource type="Resource" id="Resource_lchj0"]
-script = ExtResource("11_y6av2")
-item_data = ExtResource("9_1ltx7")
-quantity = 1
 
 [node name="Market" type="Node"]
 script = ExtResource("1_8gj1o")
@@ -133,14 +119,6 @@ transform = Transform3D(0.008011, 0, 0.999968, 0, 1, 0, -0.999968, 0, 0.008011, 
 
 [node name="crate_03" parent="objects" instance=ExtResource("6_2d5nm")]
 transform = Transform3D(-0.0508893, 0, 0.998704, 0, 1, 0, -0.998704, 0, -0.0508893, 28.8269, 1.98182, 4.33847)
-
-[node name="map" parent="objects" instance=ExtResource("9_1ywls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5942, 0.492311, -4.97235)
-slot_data = SubResource("Resource_cjehb")
-
-[node name="sword" parent="objects" instance=ExtResource("9_1ywls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.6367, 0.405539, 12.7859)
-slot_data = SubResource("Resource_lchj0")
 
 [node name="storehouse" parent="." instance=ExtResource("7_33eg8")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.23572, 0, 25.2221)

@@ -28,7 +28,7 @@ func pick_up_slot_data(slot_data: SlotData) -> bool:
 	
 
 func on_slot_clicked(index: int, button: int) -> void:
-	print("inventory interact")
+	#print("inventory interact")
 	inventory_interact.emit(self, index, button)
 	
 func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
@@ -40,3 +40,4 @@ func drop_slot_data(grabbed_slot_data: SlotData, index: int) -> SlotData:
 	
 	
 	
+

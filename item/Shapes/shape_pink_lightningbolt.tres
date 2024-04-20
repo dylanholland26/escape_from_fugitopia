@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bv8h3srmq2hdq"]
+
+[ext_resource type="Texture2D" uid="uid://c66lyw26rpcsu" path="res://item/Shapes/shape_pink_lightningbolt.png" id="1_57vh0"]
+
+[resource]
+atlas = ExtResource("1_57vh0")

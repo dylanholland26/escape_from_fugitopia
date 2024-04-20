@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://3d8n25j76eod"]
+
+[ext_resource type="Script" path="res://inventory/KeypadButton.gd" id="1_o8er0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emlde"]
+albedo_color = Color(0.779291, 0.779291, 0.779291, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b7vil"]
+material = SubResource("StandardMaterial3D_emlde")
+size = Vector3(0.1, 0.1, 0.01)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7cylu"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ymcyy"]
+size = Vector3(0.1, 0.1, 0.012)
+
+[node name="StaticBody3D" type="StaticBody3D"]
+collision_layer = 2
+script = ExtResource("1_o8er0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_b7vil")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(20, 20)
+
+[node name="Label" type="Label" parent="SubViewport"]
+custom_minimum_size = Vector2(20, 20)
+offset_right = 20.0
+offset_bottom = 23.0
+text = "0"
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.00522296)
+texture = SubResource("ViewportTexture_7cylu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ymcyy")

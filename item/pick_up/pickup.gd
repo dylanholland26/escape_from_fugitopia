@@ -16,7 +16,7 @@ func _physics_process(delta):
 
 func _on_area_3d_body_entered(body):
 	print("body entered", body)
-	if body is CharacterBody3D:
+	if body is CharacterBody3D and self.is_visible_in_tree():
 		if body.inventory_data.pick_up_slot_data(slot_data):
 			queue_free()
 	

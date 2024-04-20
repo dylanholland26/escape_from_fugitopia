@@ -1,8 +1,11 @@
 extends Node
 
+const PickUp = preload("res://item/pick_up/pickup.tscn")
+
 @onready var player = $Player
-#@onready var inventory_interface = $InventoryInterface
 @onready var inventory_interface = $UI/InventoryInterface
+@onready var clue_1 = $"Clue#1"
+@onready var door = $door
 
 
 func _ready():
@@ -37,10 +40,34 @@ func _input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			get_viewport().set_input_as_handled()
 
-
 func _on_button_pressed():
+	# going to change this
 	$Door.toggle()
 
 
 func _on_sprout_controller_player_detected():
 	$Player.lock_controls()
+
+
+
+func _on_ui_dropping_item(slot_data):
+	print("trying")
+	var pick_up = PickUp.instantiate()
+	pick_up.slot_data = slot_data
+	pick_up.position = Vector3.UP
+	add_child(pick_up)
+	
+
+
+func _on_timer_timeout():
+	clue_1.visible = true
+
+
+func _on_keypad_on_correct_password():
+	print("correct password")
+	door.open()
+
+
+func _on_keypad_on_wrong_password():
+	print("incorrect password")
+	door.close()
