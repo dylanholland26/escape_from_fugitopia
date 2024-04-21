@@ -4,6 +4,10 @@ extends CharacterBody3D
 signal toggle_inventory()
 @onready var interact_ray = $Pivot/PlayerCamera/View
 
+var hints_used : int
+@onready var interaction_label = $"../UI/HintLabel"
+@onready var cipher_key_label = $"../UI/CipherKeyLabel"
+
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
@@ -26,6 +30,10 @@ var focus = null:
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+func _ready():
+	hints_used = 0
+
+	
 func _physics_process(delta):
 	if not is_locked:
 		# Detect object in front
@@ -80,16 +88,32 @@ func _unhandled_input(event):
 		interact()
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory.emit()
-		#if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-			#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		#else:
-			
-			#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if Input.is_action_just_pressed("hint"):
+		cipher_key_label.visible = false
+		interaction_label.visible = true
+		set_interaction_text()
+	if Input.is_action_just_pressed("reveal_key"):
+		cipher_key_label.visible = true
+		interaction_label.visible = false
+		
 
 func interact():
 	if interact_ray.is_colliding():
 		interact_ray.get_collider().player_interact()
-	
+
+func set_interaction_text():
+	if hints_used == 0:
+		interaction_label.text = "Hint: It could be small... look closely!"
+	#elif hints_used == 1:
+		#interaction_label.text = "SNOWFLAKE. GREEN ARROW. FLAMING SKULL."
+	elif hints_used == 1:
+		interaction_label.text = "Hint: Have you got the cipher key?"
+	else:
+		interaction_label.text = ""
+		hints_used = 1
+	hints_used += 1
+
+
 func lock_controls():
 	is_locked = true
 	

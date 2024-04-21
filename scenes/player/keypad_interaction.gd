@@ -1,9 +1,11 @@
 extends RayCast3D
 
+#var hints_used : int
 var current_collider: Object
-#@onready var interaction_label = get_node("/root/main/UI/InteractionLabel")
+#@onready var interaction_label = get_node("/root/main/UI/HintLabel")
 
 #func _ready():
+	#hints_used = 0
 	#set_interaction_text("")
 
 func _process(_delta):
@@ -21,10 +23,11 @@ func _process(_delta):
 		#set_interaction_text("")
 	pass
 
-#func set_interaction_text(text):
-	#if !text:
-		#interaction_label.visible = false
-	#else:
-		#var interact_key = OS.get_keycode_string(InputMap.action_get_events("interact")[0].keycode)
-		#interaction_label.text = "Press %s to %s" % [interact_key, text]
-		#interaction_label.visible = true
+#func set_interaction_text():
+	#if hints_used == 0:
+		#interaction_label.text = "Hint: It could be small... look closely!"
+	#elif hints_used == 1:
+		#interaction_label.text = "Hint: Do you have the key to the ciphers?"
+	#elif hints_used == 2:
+		#interaction_label.text = "Hint: The ciphers reveal the passcode"
+	#hints_used += 1
