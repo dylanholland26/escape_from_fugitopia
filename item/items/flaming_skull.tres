@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://c87vk5dxhldnt"]
+
+[ext_resource type="Script" path="res://item/item_data.gd" id="1_vojgt"]
+[ext_resource type="Texture2D" uid="uid://cougka5dvjqru" path="res://item/#1 - Transparent Icons.png" id="2_4ntt6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80k6p"]
+atlas = ExtResource("2_4ntt6")
+region = Rect2(288, -0.538399, 32, 32.5384)
+
+[resource]
+script = ExtResource("1_vojgt")
+name = "Flaming Skull"
+description = ""
+stackable = false
+texture = SubResource("AtlasTexture_80k6p")

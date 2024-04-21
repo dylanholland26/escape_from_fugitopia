@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://bji30f882vas8"]
+[gd_scene load_steps=65 format=3 uid="uid://bji30f882vas8"]
 
 [ext_resource type="Script" path="res://levels/main/main.gd" id="1_dbue0"]
 [ext_resource type="PackedScene" uid="uid://tr4yj5vmy1el" path="res://scenes/player/player.tscn" id="2_8ny1g"]
@@ -15,9 +15,11 @@
 [ext_resource type="Script" path="res://inventory/slot_data.gd" id="13_67fxe"]
 [ext_resource type="PackedScene" uid="uid://bt2183r1o2u37" path="res://models/chest.tscn" id="14_ijmwv"]
 [ext_resource type="Script" path="res://inventory/inventory_data.gd" id="15_eme0d"]
-[ext_resource type="Resource" uid="uid://bp24mp5pwrl53" path="res://item/items/key.tres" id="16_6rtpr"]
+[ext_resource type="Resource" uid="uid://b0b76w8cl3pov" path="res://item/items/snowflake.tres" id="16_06aht"]
 [ext_resource type="Texture2D" uid="uid://bb88ihj7oey8b" path="res://item/weather_cipher.tres" id="17_hceyj"]
+[ext_resource type="Resource" uid="uid://dc52oe6q8hcrj" path="res://item/items/green_arrow.tres" id="17_ingi7"]
 [ext_resource type="Texture2D" uid="uid://dt1yn1hqk2pvh" path="res://item/arrow_cipher.tres" id="18_4ug1q"]
+[ext_resource type="Resource" uid="uid://c87vk5dxhldnt" path="res://item/items/flaming_skull.tres" id="18_qfnm4"]
 [ext_resource type="Texture2D" uid="uid://dxrwrwcn4wc33" path="res://item/skulls_cipher.tres" id="19_4gcem"]
 [ext_resource type="Texture2D" uid="uid://bqi0hj15x085y" path="res://item/Shapes/shape_purple_circle.tres" id="20_jwotb"]
 [ext_resource type="Texture2D" uid="uid://ctxk28g6312bf" path="res://item/Shapes/shape_blue_triangle.tres" id="21_c3h3y"]
@@ -66,12 +68,22 @@ quantity = 1
 
 [sub_resource type="Resource" id="Resource_28eov"]
 script = ExtResource("13_67fxe")
-item_data = ExtResource("16_6rtpr")
+item_data = ExtResource("16_06aht")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_twy15"]
+script = ExtResource("13_67fxe")
+item_data = ExtResource("17_ingi7")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_78q4m"]
+script = ExtResource("13_67fxe")
+item_data = ExtResource("18_qfnm4")
 quantity = 1
 
 [sub_resource type="Resource" id="Resource_2yxx1"]
 script = ExtResource("15_eme0d")
-slot_datas = Array[ExtResource("13_67fxe")]([SubResource("Resource_28eov"), null, null])
+slot_datas = Array[ExtResource("13_67fxe")]([SubResource("Resource_28eov"), SubResource("Resource_twy15"), SubResource("Resource_78q4m")])
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xybpt"]
 albedo_texture = ExtResource("17_hceyj")
@@ -180,6 +192,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 1.2, 5.55)
 
 [node name="UI" parent="." instance=ExtResource("7_nuany")]
 
+[node name="HintLabel" type="Label" parent="UI"]
+custom_minimum_size = Vector2(0, 150)
+offset_left = 381.0
+offset_top = 26.0
+offset_right = 781.0
+offset_bottom = 176.0
+text = "Current Objective: Break out of jail..."
+horizontal_alignment = 1
+
+[node name="CipherKeyLabel" type="Label" parent="UI"]
+visible = false
+offset_left = 321.0
+offset_top = 25.0
+offset_right = 837.0
+offset_bottom = 100.0
+text = "Riddle:
+I can run but I cannot walk. I can babble but I cannot talk.
+I'm life's elixir, I'm sure you'll agree. Press 'P' on me to find the key."
+horizontal_alignment = 1
+
 [node name="market_inside_terrain2" parent="." instance=ExtResource("7_vx36c")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -237,7 +269,7 @@ visible = false
 slot_data = SubResource("Resource_4gs7n")
 
 [node name="Timer" type="Timer" parent="Clue#1"]
-wait_time = 5.0
+wait_time = 8.0
 one_shot = true
 autostart = true
 
@@ -258,7 +290,7 @@ transform = Transform3D(1.01994e-08, -0.234068, 1.02314e-08, 0, -1.02314e-08, -0
 mesh = SubResource("PlaneMesh_atopd")
 
 [node name="Shape1" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.84371e-09, -0.238469, 1.04238e-08, 0, -1.04238e-08, -0.238469, 0.238469, 2.84371e-09, -1.24302e-16, 1.99616, 0.258325, 1.0161)
+transform = Transform3D(3.12714e-08, 0.238469, 1.04238e-08, 9.11278e-16, 1.04238e-08, -0.238469, -0.238469, 3.12714e-08, 4.55639e-16, -1.998, 0.258, -1.127)
 mesh = SubResource("PlaneMesh_46ylr")
 
 [node name="Shape2" type="MeshInstance3D" parent="."]
@@ -270,7 +302,7 @@ transform = Transform3D(3.12714e-08, 0.238469, 1.04238e-08, 9.11277e-16, 1.04238
 mesh = SubResource("PlaneMesh_32vih")
 
 [node name="Shape4" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.12714e-08, 0.238469, 1.04238e-08, 9.11277e-16, 1.04238e-08, -0.238469, -0.238469, 3.12714e-08, 4.55638e-16, -1.99781, 0.258325, -1.12708)
+transform = Transform3D(-1.04238e-08, -0.238469, -1.04238e-08, 9.11278e-16, 1.04238e-08, -0.238469, 0.238469, -1.04238e-08, 4.55639e-16, 1.996, 0.258, 1.016)
 mesh = SubResource("PlaneMesh_7yaoy")
 
 [node name="Shape5" type="MeshInstance3D" parent="."]
@@ -293,7 +325,6 @@ mesh = SubResource("PlaneMesh_fcmqq")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.814662, 1.11513, 1.87826)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_pressed"]
 [connection signal="dropping_item" from="UI" to="." method="_on_ui_dropping_item"]
 [connection signal="timeout" from="Clue#1/Timer" to="." method="_on_timer_timeout"]
 [connection signal="on_correct_password" from="Keypad" to="." method="_on_keypad_on_correct_password"]
