@@ -4,9 +4,11 @@ extends CharacterBody3D
 signal toggle_inventory()
 @onready var interact_ray = $Pivot/PlayerCamera/View
 
+
 var hints_used : int
 @onready var interaction_label = $"../UI/HintLabel"
 @onready var cipher_key_label = $"../UI/CipherKeyLabel"
+
 
 
 const SPEED = 5.0
@@ -110,7 +112,7 @@ func set_interaction_text():
 		interaction_label.text = "Hint: Have you got the cipher key?"
 	else:
 		interaction_label.text = ""
-		hints_used = 1
+		hints_used = -1
 	hints_used += 1
 
 

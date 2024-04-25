@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cn5obdmgfd8vv"]
 
 [ext_resource type="Script" path="res://path_scene.gd" id="1_fxmhj"]
-[ext_resource type="PackedScene" uid="uid://bnrfiaem2qndi" path="res://scenes/enemy_form/enemy_form.tscn" id="2_nvh15"]
+[ext_resource type="PackedScene" uid="uid://bb83bdho0ve5e" path="res://inventory/enemy.tscn" id="2_5lvmp"]
 
 [sub_resource type="Curve3D" id="Curve3D_cki4y"]
 _data = {
@@ -19,7 +19,8 @@ curve = SubResource("Curve3D_cki4y")
 script = ExtResource("1_fxmhj")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.0113962, 0, -0.999935, 0, 1, 0, 0.999935, 0, -0.0113962, -6.01209, 0, -0.00459995)
+transform = Transform3D(0.0006326, 0, -1, 0, 1, 0, 1, 0, 0.0006326, -6.01209, 0, -0.00459995)
 
-[node name="EnemyForm" parent="Path3D/PathFollow3D" instance=ExtResource("2_nvh15")]
-transform = Transform3D(-1, 0, 8.74279e-08, 0, 1, 0, -8.74279e-08, 0, -1, 0, 0, 0)
+[node name="ENEMY" parent="Path3D/PathFollow3D" instance=ExtResource("2_5lvmp")]
+transform = Transform3D(-0.999994, 0, 0.00343838, 0, 1, 0, -0.00343838, 0, -0.999994, 0, 0, 0)
+script = null

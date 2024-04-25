@@ -1,14 +1,22 @@
 extends Node
 
 const PickUp = preload("res://item/pick_up/pickup.tscn")
+const MARKET = preload("res://levels/market_level/market.tscn")
+#var market_instance = MARKET.instantiate()
 
 @onready var player = $Player
 @onready var inventory_interface = $UI/InventoryInterface
 @onready var clue_1 = $"Clue#1"
 @onready var door = $door
 
+@onready var enemy = $ENEMY
+@onready var enemy2 = $ENEMY2
+@onready var hint_label = $UI/HintLabel
+
 
 func _ready():
+	#get_tree().change_scene_to_file("res://levels/market_level/market.tscn")
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_viewport().set_input_as_handled()
 	
@@ -20,6 +28,7 @@ func _ready():
 		
 	
 func toggle_inventory_interface(external_inventory_owner = null) -> void:
+	
 	inventory_interface.visible = not inventory_interface.visible
 	if inventory_interface.visible:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -40,6 +49,7 @@ func _input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			get_viewport().set_input_as_handled()
 
+
 func _on_button_pressed():
 	# going to change this
 	$Door.toggle()
@@ -51,7 +61,7 @@ func _on_sprout_controller_player_detected():
 
 
 func _on_ui_dropping_item(slot_data):
-	print("trying")
+
 	var pick_up = PickUp.instantiate()
 	pick_up.slot_data = slot_data
 	pick_up.position = Vector3.UP
@@ -60,14 +70,21 @@ func _on_ui_dropping_item(slot_data):
 
 
 func _on_timer_timeout():
-	clue_1.visible = true
+	pass
+	#clue_1.visible = true
 
 
 func _on_keypad_on_correct_password():
 	print("correct password")
 	door.open()
+	hint_label.text = "Current Objective: Avoid the guards!"
 
 
 func _on_keypad_on_wrong_password():
 	print("incorrect password")
 	door.close()
+
+
+func _on_button_2_pressed():
+	clue_1.visible = true
+	hint_label.text = "Press K once you have picked up the scroll."
